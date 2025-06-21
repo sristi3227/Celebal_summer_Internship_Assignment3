@@ -1,1 +1,3 @@
-Check the main README file is within react-admin-dashboard folder
+To the main README file, Click the react-admin-dashboard folder and scroll down.
+
+-Sristi Mazumder
