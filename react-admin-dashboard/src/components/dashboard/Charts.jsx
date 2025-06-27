@@ -15,12 +15,12 @@ const downloadCSV = (data) => {
 };
 
 const Charts = ({ data }) => (
-  <Paper sx={{ p: 2, height: 370 }}>
+  <Paper sx={{ p: 2, height: 420, minWidth: 400 }}> {/* Increased height & width */}
     <Typography variant="h6" sx={{ mb: 2 }}>User Distribution</Typography>
     <Button variant="outlined" size="small" sx={{ mb: 2 }} onClick={() => downloadCSV(data)}>
       Export CSV
     </Button>
-    <ResponsiveContainer width="100%" height="80%">
+    <ResponsiveContainer width="100%" height={300}> {/* Set fixed height */}
       <PieChart>
         <Pie
           data={data}
@@ -28,7 +28,7 @@ const Charts = ({ data }) => (
           nameKey="name"
           cx="50%"
           cy="50%"
-          outerRadius={80}
+          outerRadius={100} // Slightly increased radius
           label
         >
           {data.map((entry, index) => (

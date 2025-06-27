@@ -5,6 +5,8 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMode } from '../../features/theme/themeSlice';
 import Logo from '../../assets/logo.png'; 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ onMenuClick }) => {
   const dispatch = useDispatch();
@@ -36,6 +38,9 @@ const Navbar = ({ onMenuClick }) => {
           />
           <DarkModeIcon color={mode === 'dark' ? 'primary' : 'disabled'} />
         </Box>
+        <IconButton color="inherit" component={Link} to="/profile">
+          <AccountCircleIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

@@ -11,10 +11,12 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+
 import StatCard from '../components/dashboard/StatCard';
 import Summary from '../components/dashboard/Summary';
+import Charts from '../components/dashboard/Charts'; // Import your Pie Chart component
 
-
+// Line and Bar Chart data
 const data = [
   { name: 'Jan', sales: 4000, revenue: 2400 },
   { name: 'Feb', sales: 3000, revenue: 1398 },
@@ -24,7 +26,15 @@ const data = [
   { name: 'Jun', sales: 2390, revenue: 3800 },
 ];
 
+// Pie Chart data
+const pieData = [
+  { name: 'Admins', value: 400 },
+  { name: 'Editors', value: 300 },
+  { name: 'Viewers', value: 300 },
+  { name: 'Guests', value: 200 },
+];
 
+// CSV export function
 const exportToCSV = (chartData, filename) => {
   const headers = Object.keys(chartData[0]).join(',');
   const rows = chartData.map(row => Object.values(row).join(',')).join('\n');
@@ -62,29 +72,17 @@ const Dashboard = () => {
           <StatCard title="Orders" value="456" increase="+24%" icon="shopping_cart" color="info" />
         </Grid>
 
-        {/* Summary Section */}
+        {/* Summary Cards */}
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
-              <Summary
-                title="Total Users"
-                value={120}
-                description="Number of registered users"
-              />
+              <Summary title="Total Users" value={120} description="Number of registered users" />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Summary
-                title="Active Projects"
-                value={8}
-                description="Projects currently in progress"
-              />
+              <Summary title="Active Projects" value={8} description="Projects currently in progress" />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Summary
-                title="Tasks Completed"
-                value={245}
-                description="Total tasks completed this month"
-              />
+              <Summary title="Tasks Completed" value={245} description="Total tasks completed this month" />
             </Grid>
           </Grid>
         </Grid>
@@ -175,6 +173,11 @@ const Dashboard = () => {
               </BarChart>
             </ResponsiveContainer>
           </Paper>
+        </Grid>
+
+        {/* Pie Chart */}
+        <Grid item xs={12} md={6}>
+          <Charts data={pieData} />
         </Grid>
       </Grid>
     </Box>

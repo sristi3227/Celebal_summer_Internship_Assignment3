@@ -3,6 +3,7 @@ import Dashboard from '../pages/Dashboard';
 import Calendar from '../pages/Calendar';
 import Kanban from '../pages/Kanban';
 import Tables from '../pages/Tables';
+import Profile from '../pages/Profile';
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
       <Route path="/calendar" element={<Calendar />} />
       <Route path="/kanban" element={<Kanban />} />
       <Route path="/tables" element={<Tables />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };
